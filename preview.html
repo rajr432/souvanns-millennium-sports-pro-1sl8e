@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Project - Angel Shukla</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+        }
+        .page-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .page-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-item.active {
+            background-color: #1e3a8a;
+            color: white;
+            border-left: 4px solid #fbbf24;
+        }
+        .paper-texture {
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-white shadow-xl flex flex-col z-10 hidden md:flex">
+        <div class="p-6 border-b border-gray-200 text-center">
+            <div class="w-16 h-16 bg-blue-900 rounded-full mx-auto flex items-center justify-center text-white text-2xl font-bold mb-3">
+                <i class="fas fa-school"></i>
+            </div>
+            <h2 class="text-sm font-bold text-gray-800 uppercase tracking-wider">Souvann's Millennium</h2>
+            <p class="text-xs text-gray-500">Public School, Gonda</p>
+        </div>
+        
+        <nav class="flex-1 overflow-y-auto py-4">
+            <ul class="space-y-1">
+                <li><button onclick="showPage('page1')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors active" id="nav-page1"><i class="fas fa-book-open w-6"></i> Cover Page</button></li>
+                <li><button onclick="showPage('page2')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page2"><i class="fas fa-info-circle w-6"></i> Introduction</button></li>
+                <li><button onclick="showPage('page3')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page3"><i class="fas fa-heartbeat w-6"></i> Importance</button></li>
+                <li><button onclick="showPage('page4')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page4"><i class="fas fa-running w-6"></i> Types of Sports</button></li>
+                <li><button onclick="showPage('page5')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page5"><i class="fas fa-medal w-6"></i> Famous Athletes</button></li>
+                <li><button onclick="showPage('page6')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page6"><i class="fas fa-dumbbell w-6"></i> Benefits</button></li>
+                <li><button onclick="showPage('page7')" class="nav-item w-full text-left px-6 py-3 text-gray-600 hover:bg-blue-50 transition-colors" id="nav-page7"><i class="fas fa-flag-checkered w-6"></i> Conclusion</button></li>
+            </ul>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200 text-xs text-gray-500 text-center">
+            Session 2025-26<br>
+            Made by Angel Shukla
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <div class="md:hidden fixed top-0 left-0 w-full bg-blue-900 text-white p-4 z-20 flex justify-between items-center">
+        <span class="font-bold">Sports Project</span>
+        <button onclick="document.querySelector('aside').classList.toggle('hidden'); document.querySelector('aside').classList.toggle('absolute'); document.querySelector('aside').classList.toggle('h-full');" class="text-white">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto paper-texture p-8 md:p-12 pt-20 md:pt-12">
+        
+        <!-- PAGE 1: COVER PAGE -->
+        <section id="page1" class="page-section active max-w-4xl mx-auto">
+            <div class="border-8 border-double border-blue-900 p-10 h-full flex flex-col items-center justify-center text-center bg-white shadow-2xl rounded-lg min-h-[80vh]">
+                <div class="mb-8">
+                    <i class="fas fa-university text-6xl text-blue-900"></i>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-blue-900 mb-2 uppercase">Souvann's Millennium</h1>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-6 uppercase">Public School, Gonda</h2>
+                <p class="text-gray-500 mb-12">Jankinagar Colony, Gonda</p>
+
+                <div class="bg-yellow-100 px-8 py-4 rounded-lg border border-yellow-300 mb-12">
+                    <h3 class="text-2xl font-bold text-gray-800 uppercase tracking-widest">Computer Project</h3>
+                    <p class="text-lg text-gray-600 mt-2">Topic: Sports & Physical Education</p>
+                    <p class="text-sm text-gray-500 mt-1">Session: 2025-26</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-2xl text-left">
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                        <p class="text-xs text-gray-500 uppercase font-bold">Submitted By</p>
+                        <p class="text-xl font-bold text-blue-900">Angel Shukla</p>
+                        <p class="text-gray-700">Class: 10 | Section: A</p>
+                        <p class="text-gray-700">Roll Number: 11</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-700">
+                        <p class="text-xs text-gray-500 uppercase font-bold">Submitted To</p>
+                        <p class="text-xl font-bold text-green-900">Santosh Sir</p>
+                        <p class="text-gray-700">Department of Computer Science</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: INTRODUCTION -->
+        <section id="page2" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Introduction to Sports</h2>
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sports" class="w-full h-64 object-cover rounded-lg mb-8 shadow-md">
+                
+                <div class="prose lg:prose-xl text-gray-700">
+                    <p class="mb-4">
+                        <strong>Sport</strong> pertains to any form of competitive physical activity or game that aims to use, maintain, or improve physical ability and skills while providing enjoyment to participants and, in some cases, entertainment to spectators.
+                    </p>
+                    <p class="mb-4">
+                        Sports can, through casual or organized participation, improve one's physical health. Hundreds of sports exist, from those between single contestants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals.
+                    </p>
+                    <p>
+                        In a school environment like <em>Souvann's Millennium Public School</em>, sports play a pivotal role in shaping the character and discipline of students. It is not just about winning, but about participation, teamwork, and resilience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: IMPORTANCE -->
+        <section id="page3" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Importance of Sports</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-800 mb-3"><i class="fas fa-heart text-red-500 mr-2"></i> Physical Health</h3>
+                        <p class="text-gray-700">Regular participation in sports helps in maintaining a healthy weight, strengthens bones and muscles, and reduces the risk of chronic diseases such as heart disease and diabetes.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-green-800 mb-3"><i class="fas fa-brain text-purple-500 mr-2"></i> Mental Health</h3>
+                        <p class="text-gray-700">Sports are known to reduce stress and depression. The physical activity stimulates the release of endorphins, the body's natural mood lifters.</p>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Teamwork" class="w-full h-64 object-cover rounded-lg mb-8 shadow-md">
+
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Character Building</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li><strong>Discipline:</strong> Following rules and respecting referees.</li>
+                    <li><strong>Teamwork:</strong> Collaborating with others to achieve a common goal.</li>
+                    <li><strong>Leadership:</strong> Guiding peers and making quick decisions.</li>
+                    <li><strong>Time Management:</strong> Balancing academics and practice.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PAGE 4: TYPES OF SPORTS -->
+        <section id="page4" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Types of Sports</h2>
+                
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-4">1. Indoor Sports</h3>
+                    <p class="text-gray-600 mb-4">Games played inside a building or under a roof.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-chess text-4xl text-gray-700 mb-2"></i>
+                            <p>Chess</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-table-tennis text-4xl text-green-600 mb-2"></i>
+                            <p>Table Tennis</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-bowling-ball text-4xl text-blue-600 mb-2"></i>
+                            <p>Bowling</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-feather-alt text-4xl text-purple-600 mb-2"></i>
+                            <p>Badminton</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-700 mb-4">2. Outdoor Sports</h3>
+                    <p class="text-gray-600 mb-4">Games played in open fields or grounds.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-futbol text-4xl text-gray-800 mb-2"></i>
+                            <p>Football</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-baseball-ball text-4xl text-red-600 mb-2"></i>
+                            <p>Cricket</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-basketball-ball text-4xl text-orange-600 mb-2"></i>
+                            <p>Basketball</p>
+                        </div>
+                        <div class="text-center p-4 border rounded hover:shadow-md transition">
+                            <i class="fas fa-running text-4xl text-yellow-600 mb-2"></i>
+                            <p>Athletics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: FAMOUS ATHLETES -->
+        <section id="page5" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Famous Indian Sportspersons</h2>
+                
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Sachin-Tendulkar-at-MRF-Promotion-Event.jpg" alt="Sachin" class="w-24 h-24 rounded-full object-cover border-4 border-blue-200">
+                        <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left">
+                            <h3 class="text-xl font-bold text-gray-800">Sachin Tendulkar</h3>
+                            <p class="text-blue-600 font-semibold">Cricket</p>
+                            <p class="text-gray-600 text-sm mt-1">Known as the "God of Cricket", he holds numerous records including 100 international centuries.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/P._V._Sindhu.jpg" alt="PV Sindhu" class="w-24 h-24 rounded-full object-cover border-4 border-blue-200">
+                        <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left">
+                            <h3 class="text-xl font-bold text-gray-800">P.V. Sindhu</h3>
+                            <p class="text-blue-600 font-semibold">Badminton</p>
+                            <p class="text-gray-600 text-sm mt-1">The first Indian woman to win two Olympic medals and a World Championship Gold.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Neeraj_Chopra_Tokyo_2020.jpg" alt="Neeraj Chopra" class="w-24 h-24 rounded-full object-cover border-4 border-blue-200">
+                        <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left">
+                            <h3 class="text-xl font-bold text-gray-800">Neeraj Chopra</h3>
+                            <p class="text-blue-600 font-semibold">Javelin Throw</p>
+                            <p class="text-gray-600 text-sm mt-1">Won the historic Gold Medal in Athletics at the Tokyo 2020 Olympics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 6: BENEFITS -->
+        <section id="page6" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Benefits of Physical Education</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-indigo-600 text-white p-6 rounded-lg shadow-lg transform hover:-translate-y-1 transition">
+                        <i class="fas fa-graduation-cap text-4xl mb-4 opacity-80"></i>
+                        <h3 class="text-xl font-bold mb-2">Academic Performance</h3>
+                        <p class="text-indigo-100 text-sm">Studies show that students who participate in sports often have better concentration and higher grades.</p>
+                    </div>
+                    <div class="bg-teal-600 text-white p-6 rounded-lg shadow-lg transform hover:-translate-y-1 transition">
+                        <i class="fas fa-users text-4xl mb-4 opacity-80"></i>
+                        <h3 class="text-xl font-bold mb-2">Social Skills</h3>
+                        <p class="text-teal-100 text-sm">Sports teach communication, conflict resolution, and how to work effectively within a diverse group.</p>
+                    </div>
+                    <div class="bg-pink-600 text-white p-6 rounded-lg shadow-lg transform hover:-translate-y-1 transition">
+                        <i class="fas fa-smile text-4xl mb-4 opacity-80"></i>
+                        <h3 class="text-xl font-bold mb-2">Self Esteem</h3>
+                        <p class="text-pink-100 text-sm">Achieving goals in sports boosts confidence and helps students develop a positive self-image.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-yellow-50 border-l-4 border-yellow-400">
+                    <h4 class="font-bold text-yellow-800">Did You Know?</h4>
+                    <p class="text-yellow-700">Regular physical activity can improve sleep quality and energy levels, making it easier to pay attention in class.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 7: CONCLUSION -->
+        <section id="page7" class="page-section max-w-4xl mx-auto">
+            <div class="bg-white p-10 shadow-lg rounded-lg flex flex-col h-full">
+                <h2 class="text-4xl font-bold text-blue-900 mb-6 border-b-2 border-yellow-400 pb-2">Conclusion</h2>
+                
+                <div class="flex-1">
+                    <p class="text-lg text-gray-700 mb-6">
+                        In conclusion, sports are an integral part of human life. They are not just a source of entertainment but a vital component for a healthy lifestyle. For students, balancing academics with sports leads to holistic development.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        At <strong>Souvann's Millennium Public School</strong>, we are encouraged to participate in various activities, and this project has helped me understand the deeper values of sportsmanship and health.
+                    </p>
+                </div>
+
+                <div class="mt-12 border-t pt-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Bibliography</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Wikipedia - History of Sports</li>
+                        <li>Olympic.org - Official Website</li>
+                        <li>NCERT Physical Education Textbook Class 10</li>
+                        <li>Images sourced from Unsplash & Wikimedia Commons</li>
+                    </ul>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-sm text-gray-400">End of Project</p>
+                    <p class="font-bold text-blue-900">Thank You!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update Nav State
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+
+            // Scroll to top
+            document.querySelector('main').scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
